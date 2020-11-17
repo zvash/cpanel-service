@@ -50,6 +50,8 @@ class Transaction extends Resource
      */
     public function fields(Request $request)
     {
+        $currencies = collect(config('countries'))->pluck('currency', 'currency')->unique()->toArray();
+        $currencies['COIN'] = 'COIN';
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
@@ -78,9 +80,10 @@ class Transaction extends Resource
 
             Currency::make('Amount', 'amount')->creationRules('required'),
 
-            Select::make('Currency', 'currency')->options(
-                collect(config('countries'))->pluck('currency', 'currency')->unique()->toArray()
-            )->onlyOnForms()->displayUsingLabels()->creationRules('required'),
+            Select::make('Currency', 'currency')->options($currencies)
+                ->onlyOnForms()
+                ->displayUsingLabels()
+                ->creationRules('required'),
 
             Text::make('Currency', 'currency')
                 ->showOnIndex()
