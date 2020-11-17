@@ -82,7 +82,11 @@ class Transaction extends Resource
                 collect(config('countries'))->pluck('currency', 'currency')->unique()->toArray()
             )->onlyOnForms()->displayUsingLabels()->creationRules('required'),
 
-            Text::make('Currency', 'currency')->showOnIndex()->showOnDetail(),
+            Text::make('Currency', 'currency')
+                ->showOnIndex()
+                ->showOnDetail()
+                ->hideWhenUpdating()
+                ->hideWhenCreating(),
 
             DateTime::make('Due Date', 'due_date')
                 ->creationRules('required')
