@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Treestoneit\Html\Html;
 
 class Category extends Resource
 {
@@ -53,6 +54,7 @@ class Category extends Resource
             Text::make('Name', 'name')->creationRules('required')->sortable(),
             BelongsTo::make('Parent', 'parent', 'App\Nova\Category')
                 ->sortable()->creationRules('required'),
+            Html::make('Path', 'path')->onlyOnDetail(),
             Boolean::make('Main Category', 'is_main')->creationRules('required')->sortable(),
             Image::make('Image', 'image', 'taskfeed'),
             Image::make('SVG', 'svg', 'taskfeed'),

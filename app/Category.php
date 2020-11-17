@@ -11,6 +11,10 @@ class Category extends TaskFeed
 
     protected $hidden = ['created_at', 'updated_at'];
 
+    protected $appends = [
+        'path'
+    ];
+
     /**
      * @param string $name
      * @param int $parentId
@@ -130,5 +134,23 @@ class Category extends TaskFeed
             $value = 'storage/images/' . preg_replace('#taskfeed#', '', $value);
             $this->attributes['svg'] = $value;
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathAttribute()
+    {
+        $ids = CategoryHierarchy::where('child_id', $this->id)->pluck('parent_id')->toArray();
+        $ids[] = $this->id;
+        $categories = Category::whereIn('id', $ids)->orderBy('id')->get();
+        $urls = [];
+        foreach ($categories as $category) {
+            if ($category->name == 'root') {
+                continue;
+            }
+            $urls[] = "<a href='/nova/resources/categories/{$category->id}' class='no-underline font-bold dim text-primary'>{$category->name}</a>";
+        }
+        return implode(' &gt ', $urls);
     }
 }

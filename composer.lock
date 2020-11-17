@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7729b954c358951b4169f1d3bad020b6",
+    "content-hash": "f428cdb65590524cf23b34945a35d863",
     "packages": [
         {
             "name": "64robots/nova-fields",
@@ -5674,6 +5674,52 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
+            "name": "treestoneit/html",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/treeStoneIT/nova-html.git",
+                "reference": "4a1cb1df959b774ea2b80a5eb332092c2a11bb16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/treeStoneIT/nova-html/zipball/4a1cb1df959b774ea2b80a5eb332092c2a11bb16",
+                "reference": "4a1cb1df959b774ea2b80a5eb332092c2a11bb16",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Treestoneit\\Html\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Treestoneit\\Html\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova Html View field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/treeStoneIT/nova-html/issues",
+                "source": "https://github.com/treeStoneIT/nova-html/tree/master"
+            },
+            "abandoned": true,
+            "time": "2018-08-31T17:29:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

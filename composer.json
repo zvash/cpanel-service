@@ -19,6 +19,7 @@
     "laravel/nova": "*",
     "laravel/tinker": "^2.0",
     "techouse/select-auto-complete": "^1.3",
+    "treestoneit/html": "^1.0",
     "whitecube/nova-flexible-content": "^0.2.6"
   },
   "require-dev": {
