@@ -7,9 +7,11 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Titasgailius\SearchRelations\SearchesRelations;
 
 class User extends Resource
 {
+    use SearchesRelations;
     /**
      * @var string
      */
@@ -35,7 +37,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'name', 'email', 'phone',
     ];
 
     /**

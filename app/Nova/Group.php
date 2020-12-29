@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\GroupType;
 use App\Nova\Flexible\Resolvers\GroupTagResolver;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
@@ -123,7 +124,9 @@ class Group extends Resource
      */
     public function filters(Request $request)
     {
-        return [];
+        return [
+            new GroupType(),
+        ];
     }
 
     /**
