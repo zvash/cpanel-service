@@ -70,6 +70,9 @@ class Payout extends Resource
                 ->sortable()->creationRules('required'),
 
             BelongsTo::make('Transaction', 'transaction', 'App\Nova\Transaction')
+                ->withMeta(['extraAttributes' => [
+                    'readonly' => true
+                ]])
                 ->nullable()
                 ->sortable(),
 
