@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Observers\PayoutObserver;
+use App\Payout;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Nova;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Nova::serving(function () {
+            Payout::observe(PayoutObserver::class);
+        });
     }
 }
