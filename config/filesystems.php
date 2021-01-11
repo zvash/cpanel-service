@@ -55,6 +55,23 @@ return [
             'visibility' => 'public',
         ],
 
+        'auth' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/auth/storage/images'),
+            'url' => env('APP_URL') . '/storage/auth',//rtrim(env('TASKFEED_APP_URL'), '/'),
+            'visibility' => 'public',
+            'permissions' => [
+                'file' => [
+                    'public' => 0664,
+                    'private' => 0600,
+                ],
+                'dir' => [
+                    'public' => 0775,
+                    'private' => 0700,
+                ],
+            ]
+        ],
+
         'taskfeed' => [
             'driver' => 'local',
             'root' => storage_path('app/public/taskfeed/storage/images'),

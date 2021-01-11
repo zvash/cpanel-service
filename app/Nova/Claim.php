@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Treestoneit\Html\Html;
 
 class Claim extends Resource
 {
@@ -92,6 +92,13 @@ class Claim extends Resource
                         'readonly' => true
                     ]
                 ])->sortable()->creationRules('required'),
+
+            Html::make('Claimable Link', 'claimable_url')
+            ->showOnDetail()
+            ->showOnIndex()
+            ->hideWhenUpdating()
+            ->hideWhenUpdating(),
+
 
             Text::make('Remote ID', 'remote_id')->sortable(),
 
