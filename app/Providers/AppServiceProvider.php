@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Category;
+use App\Observers\CategoryObserver;
 use App\Observers\PayoutObserver;
 use App\Payout;
 use Illuminate\Support\ServiceProvider;
@@ -28,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Nova::serving(function () {
             Payout::observe(PayoutObserver::class);
+            Category::observe(CategoryObserver::class);
         });
     }
 }
