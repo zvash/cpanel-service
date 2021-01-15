@@ -40,7 +40,7 @@ class Claim extends AffiliateDB
         $name = '-';
         if ($this->claimable_type == 'tasks') {
             $url = '/nova/resources/tasks/' . $this->claimable_id;
-            $name = 'Done Task';
+            $name = 'Clicked Task';
         } else if ($this->claimable_type == 'referrals') {
             $url = '/nova/resources/users/' . $this->claimable_id;
             $name = 'Referred User';
