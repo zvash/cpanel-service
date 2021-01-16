@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Techouse\SelectAutoComplete\SelectAutoComplete as Select;
 
@@ -14,7 +15,7 @@ class MinimumPayout extends Resource
      * @var string
      */
     public static $group = 'Billing';
-    
+
     /**
      * The model the resource corresponds to.
      *
@@ -57,6 +58,12 @@ class MinimumPayout extends Resource
                 ->onlyOnForms()
                 ->displayUsingLabels()
                 ->creationRules('required'),
+
+            Text::make('Currency', 'currency')
+                ->showOnIndex()
+                ->showOnDetail()
+                ->hideWhenUpdating()
+                ->hideWhenCreating(),
         ];
     }
 
