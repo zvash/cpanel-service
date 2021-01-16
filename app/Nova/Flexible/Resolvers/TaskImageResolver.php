@@ -44,8 +44,10 @@ class TaskImageResolver implements ResolverInterface
                 $image = $group->getAttributes();
                 return $image['url'];
             });
-
             foreach ($images as $url) {
+                if (substr($url, 0, strlen('storage/images')) === 'storage/images') {
+                    continue;
+                }
                 $taskImage = ['task_id' => $model->id, 'url' => $url];
                 \App\TaskImage::create($taskImage);
             }
