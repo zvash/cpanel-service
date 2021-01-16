@@ -66,7 +66,6 @@ class Task extends Resource
         'coin_reward',
         'custom_attributes',
         'store',
-        'image',
         'token',
     ];
 
