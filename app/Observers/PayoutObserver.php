@@ -25,7 +25,7 @@ class PayoutObserver
                 $transaction->currency = $payout->currency;
                 $transaction->source_type = 'payouts';
                 $transaction->source_id = $payout->id;
-                $transaction->description = 'Withdraw as per user payout request.' . ($payout->description ? "({$payout->description})" : '');
+                $transaction->description = 'Withdraw as per user payout request. ' . ($payout->description ? "({$payout->description})" : '');
                 $transaction->due_date = date('Y-m-d h:i:s');
                 $transaction->save();
                 $payout->transaction_id = $transaction->id;
